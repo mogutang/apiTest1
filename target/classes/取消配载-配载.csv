@@ -1,0 +1,3 @@
+qxpzId,testcase,result,expected_message,is_allot,is_depart,orderIds,arriveStation,allotNum,note,paidFee,collectFee,returnFreight,truckId,plateNum,driver1Id,driver1Name,driver1Tel,driver2Id,driver2Name,driver2Tel
+QXPZ01,����������,,ȡ�����سɹ�,1,0,,10601,,,,,,10452,��BA0001,10275,˾��һ��,17300000001,10276,˾������,17300000002
+QXPZ02,�����ѷ���,,�Ѿ�����������ɵ����μ�¼����ɾ��!,1,1,,10601,,,,,,10452,��BA0001,10275,˾��һ��,17300000001,10276,˾������,17300000002

@@ -1,0 +1,4 @@
+xgpzId,testcase,result,expected_message,pcStatus,truckId,plateNum,driver1Id,driver1Tel,departStation,arriveStation,departStationName,arriveStationName,paidFee,collectFee,returnFreight
+XGPZ01,�޸ĳ���������Ϣ,,�޸ĳɹ�,1,10453,��BA0002,10275,17300000001,10600,10601,��������,������ɽ,11,22,33
+XGPZ02,�����ѷ���,,��ѡ���������ѷ�����������������,2,10453,��BA0002,10275,17300000001,10600,10601,��������,������ɽ,11,22,33
+XGPZ03,������ȡ������,,�����������β�����,0,10453,��BA0002,10275,17300000001,10600,10601,��������,������ɽ,11,22,33

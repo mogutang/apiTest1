@@ -1,0 +1,2 @@
+hbpzfcId,testcase,result,expected_message,orderIds,arriveStation,allotNum,note,paidFee,collectFee,returnFreight,truckId,plateNum,driver1Id,driver1Name,driver1Tel,driver2Id,driver2Name,driver2Tel
+HBPZFC01,车辆信息、主驾驶员不为空,,配载保存成功,,10601,,配载成功,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002

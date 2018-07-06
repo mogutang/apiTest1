@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jmeter_aiptest.iml" filepath="$PROJECT_DIR$/jmeter_aiptest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apiTest1.iml" filepath="$PROJECT_DIR$/apiTest1.iml" />
     </modules>
   </component>
 </project>

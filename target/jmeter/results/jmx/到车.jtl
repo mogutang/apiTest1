@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<httpSample t="75" it="0" lt="74" ct="40" ts="1530705801475" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="359" ng="1" na="1">
+<httpSample t="88" it="0" lt="87" ct="44" ts="1530853002293" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="359" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到newToken</name>
     <failure>false</failure>
@@ -8,7 +8,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="235" it="0" lt="235" ct="0" ts="1530705801566" s="true" lb="开单" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="260" it="0" lt="260" ct="0" ts="1530853002401" s="true" lb="开单" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -16,9 +16,9 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="636" it="0" lt="636" ct="562" ts="1530705801877" s="true" lb="查询运单id" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
-<httpSample t="95" it="0" lt="95" ct="0" ts="1530705802516" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705802640" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
+<sample t="928" it="0" lt="927" ct="817" ts="1530853002776" s="true" lb="查询运单id" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="252" it="0" lt="252" ct="0" ts="1530853003714" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
+<sample t="54" it="0" lt="53" ct="0" ts="1530853004051" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -26,8 +26,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="71" it="0" lt="71" ct="0" ts="1530705802650" s="true" lb="发车" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="335" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705802721" s="true" lb="校验发车是否成功" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
+<httpSample t="78" it="0" lt="78" ct="0" ts="1530853004121" s="true" lb="发车" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="335" ng="1" na="1"/>
+<sample t="17" it="0" lt="17" ct="0" ts="1530853004201" s="true" lb="校验发车是否成功" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断发车是否成功</name>
     <failure>false</failure>
@@ -35,7 +35,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="35" it="0" lt="35" ct="5" ts="1530705806727" s="true" lb="登录-杭州象山" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="412" ng="1" na="1">
+<httpSample t="50" it="0" lt="50" ct="13" ts="1530853008227" s="true" lb="登录-杭州象山" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="412" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到newToken</name>
     <failure>false</failure>
@@ -43,8 +43,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="114" it="0" lt="114" ct="3" ts="1530705810763" s="true" lb="到车-批次已发车" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="336" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705814879" s="true" lb="校验到车是否成功" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
+<httpSample t="166" it="0" lt="166" ct="4" ts="1530853012283" s="true" lb="到车-批次已发车" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="336" ng="1" na="1"/>
+<sample t="19" it="0" lt="18" ct="0" ts="1530853016451" s="true" lb="校验到车是否成功" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断到车是否成功</name>
     <failure>false</failure>
@@ -52,7 +52,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="26" it="0" lt="26" ct="3" ts="1530705814886" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="412" ng="1" na="1">
+<httpSample t="41" it="0" lt="41" ct="11" ts="1530853016482" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="412" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到newToken</name>
     <failure>false</failure>
@@ -60,7 +60,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="248" it="0" lt="248" ct="0" ts="1530705814914" s="true" lb="开单" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="254" it="0" lt="254" ct="0" ts="1530853016528" s="true" lb="开单" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -68,9 +68,9 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="72" it="0" lt="72" ct="0" ts="1530705815165" s="true" lb="查询运单id" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
-<httpSample t="103" it="0" lt="103" ct="0" ts="1530705815238" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
-<sample t="5" it="0" lt="5" ct="0" ts="1530705815341" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
+<sample t="93" it="0" lt="92" ct="0" ts="1530853016797" s="true" lb="查询运单id" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="99" it="0" lt="99" ct="0" ts="1530853016893" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
+<sample t="21" it="0" lt="20" ct="0" ts="1530853016994" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -78,7 +78,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="31" it="0" lt="31" ct="2" ts="1530705819350" s="true" lb="登录-杭州象山" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="412" ng="1" na="1">
+<httpSample t="54" it="0" lt="53" ct="13" ts="1530853021033" s="true" lb="登录-杭州象山" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="535" sby="412" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到newToken</name>
     <failure>false</failure>
@@ -86,8 +86,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="32" it="0" lt="32" ct="5" ts="1530705823382" s="true" lb="到车-批次未发车" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="294" sby="336" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705827415" s="true" lb="校验到车是否成功" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
+<httpSample t="30" it="0" lt="30" ct="2" ts="1530853025096" s="true" lb="到车-批次未发车" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="294" sby="336" ng="1" na="1"/>
+<sample t="35" it="0" lt="35" ct="0" ts="1530853029126" s="true" lb="校验到车是否成功" rc="200" rm="OK" tn="到车（allot.arrived） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断到车是否成功</name>
     <failure>false</failure>

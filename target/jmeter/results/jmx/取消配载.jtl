@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<httpSample t="110" it="0" lt="109" ct="65" ts="1530705889419" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="535" sby="356" ng="1" na="1">
+<httpSample t="105" it="0" lt="105" ct="59" ts="1530853095308" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="535" sby="356" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到token</name>
     <failure>false</failure>
@@ -8,7 +8,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="230" it="0" lt="230" ct="0" ts="1530705889594" s="true" lb="开单" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="260" it="0" lt="259" ct="0" ts="1530853095483" s="true" lb="开单" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -16,9 +16,9 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="632" it="0" lt="632" ct="558" ts="1530705889908" s="true" lb="查询运单id" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
-<httpSample t="90" it="0" lt="90" ct="0" ts="1530705890543" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705890664" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
+<sample t="966" it="0" lt="965" ct="884" ts="1530853095886" s="true" lb="查询运单id" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="118" it="0" lt="118" ct="0" ts="1530853096855" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
+<sample t="5" it="0" lt="4" ct="0" ts="1530853097034" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -26,8 +26,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="117" it="0" lt="116" ct="0" ts="1530705891173" s="true" lb="取消配载-批次配载中" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="335" ng="1" na="1"/>
-<sample t="3" it="0" lt="3" ct="0" ts="1530705891790" s="true" lb="校验取消配载是否成功" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="18" sby="0" ng="1" na="1">
+<httpSample t="118" it="0" lt="118" ct="3" ts="1530853097547" s="true" lb="取消配载-批次配载中" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="335" ng="1" na="1"/>
+<sample t="6" it="0" lt="5" ct="0" ts="1530853098167" s="true" lb="校验取消配载是否成功" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="18" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断取消配载是否成功</name>
     <failure>false</failure>
@@ -35,7 +35,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="220" it="0" lt="220" ct="2" ts="1530705891797" s="true" lb="开单" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="240" it="0" lt="240" ct="0" ts="1530853098185" s="true" lb="开单" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -43,9 +43,9 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="81" it="0" lt="81" ct="0" ts="1530705892021" s="true" lb="查询运单id" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
-<httpSample t="111" it="0" lt="111" ct="0" ts="1530705892103" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705892215" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
+<sample t="77" it="0" lt="77" ct="0" ts="1530853098438" s="true" lb="查询运单id" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="96" it="0" lt="96" ct="0" ts="1530853098518" s="true" lb="数据准备-配载" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="647" ng="1" na="1"/>
+<sample t="6" it="0" lt="5" ct="0" ts="1530853098615" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="55" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -53,8 +53,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="148" it="0" lt="148" ct="0" ts="1530705892224" s="true" lb="数据准备-发车" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="335" ng="1" na="1"/>
-<sample t="3" it="0" lt="3" ct="0" ts="1530705892372" s="true" lb="校验发车是否成功" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
+<httpSample t="71" it="0" lt="71" ct="0" ts="1530853098633" s="true" lb="数据准备-发车" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="245" sby="335" ng="1" na="1"/>
+<sample t="7" it="0" lt="7" ct="1" ts="1530853098705" s="true" lb="校验发车是否成功" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="9" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断发车是否成功</name>
     <failure>false</failure>
@@ -62,8 +62,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="24" it="0" lt="24" ct="0" ts="1530705892878" s="true" lb="取消配载-批次已发车" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="295" sby="335" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705893403" s="true" lb="校验取消配载是否成功" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="18" sby="0" ng="1" na="1">
+<httpSample t="34" it="0" lt="34" ct="0" ts="1530853099219" s="true" lb="取消配载-批次已发车" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="295" sby="335" ng="1" na="1"/>
+<sample t="17" it="0" lt="16" ct="0" ts="1530853099756" s="true" lb="校验取消配载是否成功" rc="200" rm="OK" tn="取消配载（allot.delete） 1-1" dt="text" by="18" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断取消配载是否成功</name>
     <failure>false</failure>

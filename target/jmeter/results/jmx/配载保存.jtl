@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<httpSample t="81" it="0" lt="81" ct="45" ts="1530705906952" s="true" lb="登录-提取token" rc="200" rm="OK" tn="登录 1-1" dt="text" by="535" sby="367" ng="1" na="1">
+<httpSample t="102" it="0" lt="101" ct="54" ts="1530853113945" s="true" lb="登录-提取token" rc="200" rm="OK" tn="登录 1-1" dt="text" by="535" sby="367" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到token</name>
     <failure>false</failure>
@@ -8,8 +8,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="0" it="0" lt="0" ct="0" ts="1530705907051" s="true" lb="token全局变量" rc="200" rm="OK" tn="登录 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
-<httpSample t="412" it="0" lt="412" ct="3" ts="1530705907114" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<sample t="0" it="0" lt="0" ct="0" ts="1530853114064" s="true" lb="token全局变量" rc="200" rm="OK" tn="登录 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
+<httpSample t="247" it="0" lt="247" ct="12" ts="1530853114130" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -17,9 +17,9 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="593" it="0" lt="593" ct="514" ts="1530705907600" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
-<httpSample t="102" it="0" lt="102" ct="0" ts="1530705908196" s="true" lb="配载-车辆信息、主驾驶员为空" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="245" sby="589" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705908328" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="27" sby="0" ng="1" na="1">
+<sample t="786" it="0" lt="785" ct="694" ts="1530853114542" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="109" it="0" lt="109" ct="0" ts="1530853115340" s="true" lb="配载-车辆信息、主驾驶员为空" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="245" sby="589" ng="1" na="1"/>
+<sample t="12" it="0" lt="12" ct="0" ts="1530853115522" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="27" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -27,7 +27,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="233" it="0" lt="233" ct="0" ts="1530705908335" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="249" it="0" lt="249" ct="0" ts="1530853115540" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -35,9 +35,9 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="75" it="0" lt="75" ct="0" ts="1530705908571" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
-<httpSample t="73" it="0" lt="73" ct="0" ts="1530705908647" s="true" lb="配载-车辆信息、主驾驶员不为空" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="245" sby="659" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705908720" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="27" sby="0" ng="1" na="1">
+<sample t="98" it="0" lt="98" ct="0" ts="1530853115801" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="130" it="0" lt="130" ct="0" ts="1530853115902" s="true" lb="配载-车辆信息、主驾驶员不为空" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="245" sby="659" ng="1" na="1"/>
+<sample t="16" it="0" lt="16" ct="0" ts="1530853116034" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="27" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -45,7 +45,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="246" it="0" lt="246" ct="0" ts="1530705908727" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="257" it="0" lt="257" ct="0" ts="1530853116062" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -53,9 +53,9 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="78" it="0" lt="78" ct="0" ts="1530705908976" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
-<httpSample t="27" it="0" lt="27" ct="0" ts="1530705909055" s="true" lb="配载-到站为空" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="282" sby="654" ng="1" na="1"/>
-<sample t="3" it="0" lt="3" ct="0" ts="1530705909083" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1">
+<sample t="90" it="0" lt="89" ct="0" ts="1530853116328" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="42" it="0" lt="42" ct="3" ts="1530853116421" s="true" lb="配载-到站为空" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="282" sby="654" ng="1" na="1"/>
+<sample t="28" it="0" lt="27" ct="0" ts="1530853116465" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条配载保存（allot.create） 2-1" dt="text" by="10" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -63,7 +63,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="242" it="0" lt="242" ct="6" ts="1530705909118" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="290" it="0" lt="290" ct="5" ts="1530853116578" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -71,7 +71,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="239" it="0" lt="238" ct="0" ts="1530705909362" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="245" it="0" lt="245" ct="0" ts="1530853116876" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -79,7 +79,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="235" it="0" lt="235" ct="0" ts="1530705909602" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="261" it="0" lt="261" ct="0" ts="1530853117127" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -87,7 +87,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="259" it="0" lt="259" ct="0" ts="1530705909838" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="240" it="0" lt="240" ct="0" ts="1530853117394" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -95,7 +95,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="247" it="0" lt="247" ct="0" ts="1530705910098" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="244" it="0" lt="244" ct="0" ts="1530853117639" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -103,7 +103,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="79" it="0" lt="75" ct="3" ts="1530705911347" s="true" lb="获取待配载运单" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="41031" sby="495" ng="1" na="1">
+<httpSample t="86" it="0" lt="76" ct="7" ts="1530853118888" s="true" lb="获取待配载运单" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="41031" sby="495" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单</name>
     <failure>false</failure>
@@ -111,8 +111,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="125" it="0" lt="125" ct="0" ts="1530705911438" s="true" lb="批量配载" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="245" sby="686" ng="1" na="1"/>
-<sample t="4" it="0" lt="4" ct="0" ts="1530705911563" s="true" lb="查询批次号pcNum，判断配载是否成功" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="36" sby="0" ng="1" na="1">
+<httpSample t="92" it="0" lt="92" ct="0" ts="1530853119013" s="true" lb="批量配载" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="245" sby="686" ng="1" na="1"/>
+<sample t="12" it="0" lt="12" ct="0" ts="1530853119106" s="true" lb="查询批次号pcNum，判断配载是否成功" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="36" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -120,7 +120,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="219" it="0" lt="219" ct="0" ts="1530705911569" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
+<httpSample t="239" it="0" lt="239" ct="0" ts="1530853119129" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1384" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -128,7 +128,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="257" it="0" lt="257" ct="0" ts="1530705911790" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1385" ng="1" na="1">
+<httpSample t="272" it="0" lt="272" ct="0" ts="1530853119373" s="true" lb="配载数据准备-开单请求" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="256" sby="1385" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -136,7 +136,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="49" it="0" lt="47" ct="0" ts="1530705913047" s="true" lb="获取待配载运单" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="27472" sby="495" ng="1" na="1">
+<httpSample t="78" it="0" lt="67" ct="0" ts="1530853120649" s="true" lb="获取待配载运单" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="27464" sby="495" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单</name>
     <failure>false</failure>
@@ -144,8 +144,8 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="87" it="0" lt="87" ct="0" ts="1530705913101" s="true" lb="第一次配载" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="245" sby="658" ng="1" na="1"/>
-<sample t="4" it="0" lt="3" ct="0" ts="1530705913189" s="true" lb="查询批次号pcNum，判断第一次配载是否成功" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="36" sby="0" ng="1" na="1">
+<httpSample t="91" it="0" lt="91" ct="0" ts="1530853120736" s="true" lb="第一次配载" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="245" sby="658" ng="1" na="1"/>
+<sample t="12" it="0" lt="12" ct="0" ts="1530853120828" s="true" lb="查询批次号pcNum，判断第一次配载是否成功" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="36" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>
@@ -153,15 +153,15 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </sample>
-<httpSample t="49" it="0" lt="49" ct="0" ts="1530705913194" s="true" lb="查询配载中批次信息" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="2205" sby="528" ng="1" na="1">
+<httpSample t="113" it="0" lt="113" ct="0" ts="1530853120846" s="true" lb="查询配载中批次信息" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="2205" sby="528" ng="1" na="1">
   <assertionResult>
     <name>查询批次是否成功</name>
     <failure>false</failure>
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="103" it="0" lt="103" ct="0" ts="1530705913244" s="true" lb="合并配载" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="245" sby="731" ng="1" na="1"/>
-<sample t="3" it="0" lt="3" ct="0" ts="1530705913348" s="true" lb="查询批次号pcNum，判断合并配载是否成功" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="36" sby="0" ng="1" na="1">
+<httpSample t="117" it="0" lt="117" ct="8" ts="1530853120962" s="true" lb="合并配载" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="245" sby="731" ng="1" na="1"/>
+<sample t="12" it="0" lt="11" ct="0" ts="1530853121080" s="true" lb="查询批次号pcNum，判断合并配载是否成功" rc="200" rm="OK" tn="批量、合并配载保存 3-1" dt="text" by="36" sby="0" ng="1" na="1">
   <assertionResult>
     <name>判断配载是否成功</name>
     <failure>false</failure>

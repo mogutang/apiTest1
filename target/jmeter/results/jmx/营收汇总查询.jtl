@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<httpSample t="82" it="0" lt="82" ct="43" ts="1530705894365" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="登录 1-1" dt="text" by="535" sby="333" ng="1" na="1">
+<httpSample t="88" it="0" lt="87" ct="43" ts="1530853100760" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="登录 1-1" dt="text" by="535" sby="333" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到token</name>
     <failure>false</failure>
@@ -8,15 +8,15 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<sample t="0" it="0" lt="0" ct="0" ts="1530705894464" s="true" lb="token全局变量" rc="200" rm="OK" tn="登录 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
-<httpSample t="51" it="0" lt="51" ct="5" ts="1530705894483" s="true" lb="查询开单前总运费" rc="200" rm="OK" tn="营收汇总查询 (reportOperation.getOperation) 2-1" dt="text" by="1324" sby="561" ng="1" na="1">
+<sample t="0" it="0" lt="0" ct="0" ts="1530853100865" s="true" lb="token全局变量" rc="200" rm="OK" tn="登录 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
+<httpSample t="59" it="0" lt="59" ct="2" ts="1530853100883" s="true" lb="查询开单前总运费" rc="200" rm="OK" tn="营收汇总查询 (reportOperation.getOperation) 2-1" dt="text" by="1324" sby="561" ng="1" na="1">
   <assertionResult>
     <name>响应断言</name>
     <failure>false</failure>
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="243" it="0" lt="243" ct="0" ts="1530705894568" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="营收汇总查询 (reportOperation.getOperation) 2-1" dt="text" by="256" sby="1392" ng="1" na="1">
+<httpSample t="318" it="0" lt="318" ct="0" ts="1530853100979" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="营收汇总查询 (reportOperation.getOperation) 2-1" dt="text" by="256" sby="1392" ng="1" na="1">
   <assertionResult>
     <name>判断是否正确获取到运单号</name>
     <failure>false</failure>
@@ -24,7 +24,7 @@
     <failureMessage></failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="36" it="0" lt="36" ct="0" ts="1530705894888" s="true" lb="查询开单后总运费" rc="200" rm="OK" tn="营收汇总查询 (reportOperation.getOperation) 2-1" dt="text" by="1325" sby="561" ng="1" na="1">
+<httpSample t="35" it="0" lt="35" ct="0" ts="1530853101463" s="true" lb="查询开单后总运费" rc="200" rm="OK" tn="营收汇总查询 (reportOperation.getOperation) 2-1" dt="text" by="1325" sby="561" ng="1" na="1">
   <assertionResult>
     <name>判断总运费是否正确增加</name>
     <failure>false</failure>
