@@ -1,0 +1,3 @@
+qxpzId,testcase,result,expected_message,is_allot,is_depart,orderIds,arriveStation,allotNum,note,paidFee,collectFee,returnFreight,truckId,plateNum,driver1Id,driver1Name,driver1Tel,driver2Id,driver2Name,driver2Tel
+QXPZ01,批次配载中,,取消配载成功,1,0,,10601,,,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002
+QXPZ02,批次已发车,,已经发车或者完成的批次记录不能删除!,1,1,,10601,,,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002

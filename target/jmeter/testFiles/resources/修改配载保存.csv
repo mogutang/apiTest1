@@ -1,0 +1,4 @@
+xgpzId,testcase,result,expected_message,pcStatus,truckId,plateNum,driver1Id,driver1Tel,departStation,arriveStation,departStationName,arriveStationName,paidFee,collectFee,returnFreight
+XGPZ01,修改车辆费用信息,,修改成功,1,10453,浙BA0002,10275,17300000001,10600,10601,宁波北仑,杭州象山,11,22,33
+XGPZ02,批次已发车,,所选车辆批次已发车，不能再做调整,2,10453,浙BA0002,10275,17300000001,10600,10601,宁波北仑,杭州象山,11,22,33
+XGPZ03,批次已取消配载,,您操作的批次不存在,0,10453,浙BA0002,10275,17300000001,10600,10601,宁波北仑,杭州象山,11,22,33

@@ -1,0 +1,3 @@
+qxdcpzId,testcase,result,expected_message,is_arrive,orderIds,arriveStation,allotNum,note,paidFee,collectFee,returnFreight,truckId,plateNum,driver1Id,driver1Name,driver1Tel,driver2Id,driver2Name,driver2Tel
+QXDCPZ01,批次已到车,,取消到车成功,1,,10601,,,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002
+QXDCPZ02,批次在途中,,已做其他操作配载、签收或外转等处理，不能取消到车！,0,,10601,,,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002

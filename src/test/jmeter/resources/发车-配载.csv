@@ -1,0 +1,5 @@
+fcpzId,testcase,result,expected_message,orderIds,arriveStation,allotNum,note,paidFee,collectFee,returnFreight,truckId,plateNum,driver1Id,driver1Name,driver1Tel,driver2Id,driver2Name,driver2Tel
+FCPZ01,车辆信息、主驾驶员不为空,,发车成功,,10601,,,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002
+FCPZ02,车辆信息、主驾驶员为空,,请填写信息[司机及车辆],,10601,,,,,,,,,,,,,
+FCPZ03,车辆为空,,请填写信息[司机及车辆],,10601,,,,,,,,10275,司机一号,17300000001,10276,司机二号,17300000002
+FCPZ04,主驾驶员为空,,请填写信息[司机及车辆],,10601,,,,,,10452,浙BA0001,,司机一号,17300000001,10276,司机二号,17300000002

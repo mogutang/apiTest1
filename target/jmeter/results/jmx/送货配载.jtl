@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="89" it="0" lt="89" ct="48" ts="1530705895894" s="true" lb="登录-宁波北仑" rc="200" rm="OK" tn="登录 1-1" dt="text" by="535" sby="333" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到token</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="0" it="0" lt="0" ct="0" ts="1530705896001" s="true" lb="token全局变量" rc="200" rm="OK" tn="登录 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
+<httpSample t="296" it="0" lt="296" ct="3" ts="1530705896066" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="256" sby="1392" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="690" it="0" lt="690" ct="607" ts="1530705896439" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="210" it="0" lt="210" ct="0" ts="1530705897132" s="true" lb="单条送货配载-配载信息完整" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="245" sby="522" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705897372" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="29" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="232" it="0" lt="232" ct="0" ts="1530705897385" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="256" sby="1391" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="85" it="0" lt="85" ct="0" ts="1530705897621" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="28" it="0" lt="28" ct="0" ts="1530705897707" s="true" lb="单条送货配载-自提运单" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="283" sby="522" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705897735" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="10" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="251" it="0" lt="251" ct="0" ts="1530705897748" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="256" sby="1392" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="79" it="0" lt="79" ct="0" ts="1530705898002" s="true" lb="查询运单id" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="162" it="0" lt="162" ct="3" ts="1530705898082" s="true" lb="单条送货配载-实际送货费&lt;0" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="286" sby="522" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705898244" s="true" lb="查询批次号pcNum， 判断配载是否成功" rc="200" rm="OK" tn="单条送货配载(delivery.add) 2-1" dt="text" by="10" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="233" it="0" lt="233" ct="2" ts="1530705898870" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="256" sby="1392" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="244" it="0" lt="244" ct="0" ts="1530705899705" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="256" sby="1392" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="240" it="0" lt="240" ct="0" ts="1530705900550" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="256" sby="1392" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="258" it="0" lt="258" ct="3" ts="1530705901393" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="256" sby="1392" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="549" it="0" lt="549" ct="0" ts="1530705902252" s="true" lb="数据准备-开单" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="256" sby="1392" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="80" it="0" lt="69" ct="3" ts="1530705904401" s="true" lb="获取待送货配载运单" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="90595" sby="421" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="258" it="0" lt="258" ct="0" ts="1530705905094" s="true" lb="批量送货配载" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="245" sby="706" ng="1" na="1"/>
+<sample t="11" it="0" lt="10" ct="0" ts="1530705905952" s="true" lb="查询批次号pcNum，判断配载是否成功" rc="200" rm="OK" tn="批量送货配载 3-1" dt="text" by="29" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+
+</testResults>

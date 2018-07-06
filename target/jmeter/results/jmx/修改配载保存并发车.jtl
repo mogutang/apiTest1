@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="85" it="0" lt="85" ct="46" ts="1530705793793" s="true" lb="登录-提取token" rc="200" rm="OK" tn="登录 1-1" dt="text" by="535" sby="367" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到token</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="0" it="0" lt="0" ct="0" ts="1530705793896" s="true" lb="token全局变量" rc="200" rm="OK" tn="登录 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
+<httpSample t="240" it="0" lt="240" ct="6" ts="1530705793967" s="true" lb="开单" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="721" it="0" lt="720" ct="636" ts="1530705794283" s="true" lb="查询运单id" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="125" it="0" lt="125" ct="0" ts="1530705795006" s="true" lb="配载-配载数据准备" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="658" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705795160" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="55" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="95" it="0" lt="94" ct="0" ts="1530705795679" s="true" lb="修改配载保存并发车-修改车辆费用信息" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="1646" ng="1" na="1"/>
+<sample t="9" it="0" lt="9" ct="0" ts="1530705795774" s="true" lb="校验修改是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="60" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断修改是否正确</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="241" it="0" lt="241" ct="0" ts="1530705795788" s="true" lb="开单" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="82" it="0" lt="82" ct="0" ts="1530705796032" s="true" lb="查询运单id" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="100" it="0" lt="100" ct="2" ts="1530705796115" s="true" lb="配载-配载数据准备" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="658" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705796216" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="55" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="41" it="0" lt="41" ct="0" ts="1530705796732" s="true" lb="修改配载保存并发车-车辆为空" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="275" sby="1632" ng="1" na="1"/>
+<sample t="9" it="0" lt="9" ct="0" ts="1530705796773" s="true" lb="校验修改是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="57" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断修改是否正确</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="234" it="0" lt="234" ct="0" ts="1530705796787" s="true" lb="开单" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="84" it="0" lt="84" ct="0" ts="1530705797024" s="true" lb="查询运单id" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="126" it="0" lt="126" ct="0" ts="1530705797109" s="true" lb="配载-配载数据准备" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="658" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705797235" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="55" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="62" it="0" lt="62" ct="0" ts="1530705797751" s="true" lb="修改配载保存并发车-主驾驶员为空" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="275" sby="1630" ng="1" na="1"/>
+<sample t="9" it="0" lt="9" ct="0" ts="1530705797814" s="true" lb="校验修改是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="57" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断修改是否正确</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="237" it="0" lt="237" ct="0" ts="1530705797826" s="true" lb="开单" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="80" it="0" lt="80" ct="0" ts="1530705798066" s="true" lb="查询运单id" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="114" it="0" lt="114" ct="5" ts="1530705798147" s="true" lb="配载-配载数据准备" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="658" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705798262" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="55" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="100" it="0" lt="100" ct="0" ts="1530705798276" s="true" lb="发车" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="335" ng="1" na="1">
+  <assertionResult>
+    <name>发车是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="24" it="0" lt="24" ct="0" ts="1530705798878" s="true" lb="修改配载保存并发车-批次已发车" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="291" sby="1646" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705798904" s="true" lb="校验修改是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="57" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断修改是否正确</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="245" it="0" lt="245" ct="0" ts="1530705798917" s="true" lb="开单" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="85" it="0" lt="84" ct="1" ts="1530705799167" s="true" lb="查询运单id" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="106" it="0" lt="106" ct="0" ts="1530705799253" s="true" lb="配载-配载数据准备" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="658" ng="1" na="1"/>
+<sample t="9" it="0" lt="9" ct="0" ts="1530705799360" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="55" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="114" it="0" lt="113" ct="0" ts="1530705799373" s="true" lb="取消配载" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="335" ng="1" na="1">
+  <assertionResult>
+    <name>取消配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="23" it="0" lt="23" ct="0" ts="1530705799987" s="true" lb="修改配载保存并发车-批次已取消配载" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="270" sby="1646" ng="1" na="1"/>
+<sample t="10" it="0" lt="10" ct="0" ts="1530705800010" s="true" lb="校验修改是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="45" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断修改是否正确</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+<httpSample t="238" it="0" lt="238" ct="0" ts="1530705800024" s="true" lb="开单" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="256" sby="1384" ng="1" na="1">
+  <assertionResult>
+    <name>判断是否正确获取到运单号</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</httpSample>
+<sample t="79" it="0" lt="79" ct="1" ts="1530705800265" s="true" lb="查询运单id" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<httpSample t="94" it="0" lt="94" ct="5" ts="1530705800345" s="true" lb="配载-配载数据准备" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="245" sby="658" ng="1" na="1"/>
+<sample t="11" it="0" lt="10" ct="0" ts="1530705800439" s="true" lb="查询批次号pcNum,id， 判断返回是否正确" rc="200" rm="OK" tn="修改配载-保存并发车（allot.edit_depart） 2-1" dt="text" by="55" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>判断配载是否成功</name>
+    <failure>false</failure>
+    <error>false</error>
+    <failureMessage></failureMessage>
+  </assertionResult>
+</sample>
+
+</testResults>

@@ -1,0 +1,3 @@
+dcpzId,testcase,result,expected_message,is_depart,is_arrive,orderIds,arriveStation,allotNum,note,paidFee,collectFee,returnFreight,truckId,plateNum,driver1Id,driver1Name,driver1Tel,driver2Id,driver2Name,driver2Tel
+DCPZ01,批次已发车,,到车成功,1,0,,10601,,,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002
+DCPZ02,批次未发车,,所选批次已经取消发车，请再次确认！,0,0,,10601,,,,,,10452,浙BA0001,10275,司机一号,17300000001,10276,司机二号,17300000002
