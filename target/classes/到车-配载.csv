@@ -1,3 +1,0 @@
-dcpzId,testcase,result,expected_message,is_depart,is_arrive,orderIds,arriveStation,allotNum,note,paidFee,collectFee,returnFreight,truckId,plateNum,driver1Id,driver1Name,driver1Tel,driver2Id,driver2Name,driver2Tel
-DCPZ01,�����ѷ���,,�����ɹ�,1,0,,10601,,,,,,10452,��BA0001,10275,˾��һ��,17300000001,10276,˾������,17300000002
-DCPZ02,����δ����,,��ѡ�����Ѿ�ȡ�����������ٴ�ȷ�ϣ�,0,0,,10601,,,,,,10452,��BA0001,10275,˾��һ��,17300000001,10276,˾������,17300000002

@@ -1,4 +1,0 @@
-dtshpzId,testcase,result,expected_message,plateNum,truckId,driver1Id,driver1Tel,driverName,orderId,actualDeliveryFee
-DTSHPZ01,������Ϣ����,,�ͻ����سɹ�,��BA0001,10452,10275,17300000001,˾��һ��,,30
-DTSHPZ02,�����˵�,,�����ͻ����,��BA0001,10452,10275,17300000001,˾��һ��,,30
-DTSHPZ03,ʵ���ͻ���<0,,����������ó������Ժ�����!,��BA0001,10452,10275,17300000001,˾��һ��,,-9

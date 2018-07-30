@@ -1,4 +1,0 @@
-shpzId,testcase,result,expected_message,plateNum,truckId,driver1Id,driver1Tel,driverName,orderId,actualDeliveryFee
-SHPZ01,������Ϣ����,,�ͻ����سɹ�,��BA0001,10452,10275,17300000001,˾��һ��,,30
-SHPZ02,�����˵�,,�����ͻ����,��BA0001,10452,10275,17300000001,˾��һ��,,30
-SHPZ03,ʵ���ͻ���<0,,����������ó������Ժ�����!,��BA0001,10452,10275,17300000001,˾��һ��,,-9
