@@ -28,6 +28,13 @@
             <artifactId>saxon</artifactId>
             <version>8.7</version>
         </dependency>
+        <dependency>
+            <groupId>khy</groupId>
+            <artifactId>khy</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/lib/khy.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -46,6 +53,8 @@
                 </executions>
                 <configuration>
                     <artifactId>mysql-connector-java</artifactId>
+                    <outputDirectory>${project.build.directory}/jmeter/lib</outputDirectory>
+                    <artifactId>khy</artifactId>
                     <outputDirectory>${project.build.directory}/jmeter/lib</outputDirectory>
                 </configuration>
             </plugin>
