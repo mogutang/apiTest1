@@ -8,7 +8,7 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath">D:\apache-jmeter-3.3\lib\ext\khy.jar</stringProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
       <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
@@ -126,7 +126,7 @@ vars.put(&quot;pzRowNum1&quot;,String.valueOf(pzRowNum));</stringProp>
 //String cur=new GetFilePath().getCurrentPath();
 //String cur=System.getProperty(&quot;user.dir&quot;);
 String filePath1=vars.get(&quot;filePath&quot;);
-String filePath=filePath1+&quot;dev_account.csv&quot;;
+String filePath=filePath1+&quot;account.csv&quot;;
 //filePath=filePath.replace(&quot;\\&quot;,&quot;\\\\&quot;);
 //return filePath;
 //String filePath=&quot;.\\resources\\dev_account.csv&quot;;本地运行可以，jenkins上不行

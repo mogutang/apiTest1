@@ -42,7 +42,19 @@
         <stringProp name="username">root</stringProp>
       </JDBCDataSource>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="登录" enabled="true">
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="配置文件" enabled="true">
+        <stringProp name="filename">..\resources\配置文件.txt</stringProp>
+        <stringProp name="fileEncoding">UTF-8</stringProp>
+        <stringProp name="variableNames">serviceUrl,sqlCheck,filePath</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="登录" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -143,7 +155,7 @@ else
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="User-Agent" elementType="Header">
               <stringProp name="Header.name">cookie</stringProp>
@@ -184,6 +196,122 @@ vars.put(&quot;pzRowNum1&quot;,String.valueOf(pzRowNum));</stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
         </BeanShellSampler>
+        <hashTree/>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="获取测试账号" enabled="true">
+          <stringProp name="BeanShellSampler.query">import com.khy.apitest.*;
+
+//String cur=new GetFilePath().getCurrentPath();
+//String cur=System.getProperty(&quot;user.dir&quot;);
+String filePath1=vars.get(&quot;filePath&quot;);
+String filePath=filePath1+&quot;account.csv&quot;;
+//filePath=filePath.replace(&quot;\\&quot;,&quot;\\\\&quot;);
+//return filePath;
+//String filePath=&quot;.\\resources\\dev_account.csv&quot;;本地运行可以，jenkins上不行
+//获取宁波北仑账号
+String nbbl_username=new GetFileData().readTxtData(filePath,2,4);
+String nbbl_password=new GetFileData().readTxtData(filePath,2,5);
+//获取杭州象山账号
+String hzxs_username=new GetFileData().readTxtData(filePath,3,4);
+String hzxs_password=new GetFileData().readTxtData(filePath,3,5);
+vars.put(&quot;nbbl_username&quot;,nbbl_username);
+vars.put(&quot;nbbl_password&quot;,nbbl_password);
+vars.put(&quot;hzxs_username&quot;,hzxs_username);
+vars.put(&quot;hzxs_password&quot;,hzxs_password);
+</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters"></stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登录-宁波北仑" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">service=employee.loginAuth&amp;params={&quot;terminalType&quot;:1,&quot;username&quot;:&quot;${nbbl_username}&quot;,&quot;password&quot;:&quot;${nbbl_password}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="false">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import com.khy.apitest.*;
+
+String cur=new GetFilePath().getCurrentPath();
+//String s=System.getProperty(&quot;user.dir&quot;);
+String filePath=cur+&quot;\\resources\\dev_account.csv&quot;;
+filePath=filePath.replace(&quot;\\&quot;,&quot;\\\\&quot;);
+//String filePath=&quot;.\\resources\\dev_account.csv&quot;;本地运行可以，jenkins上不行
+//String filePath=&quot;./src/test/jmeter/resources/dev_account.csv&quot;;不行
+//获取宁波北仑账号
+String nbbl_username=new GetFileData().readTxtData(filePath,2,4);
+String nbbl_password=new GetFileData().readTxtData(filePath,2,5);
+return nbbl_password;
+//获取杭州象山账号
+String hzxs_username=new GetFileData().readTxtData(filePath,3,4);
+String hzxs_password=new GetFileData().readTxtData(filePath,3,5);
+
+vars.put(&quot;nbbl_username&quot;,nbbl_username);
+vars.put(&quot;nbbl_password&quot;,nbbl_password);
+vars.put(&quot;hzxs_username&quot;,hzxs_username);
+vars.put(&quot;hzxs_password&quot;,hzxs_password);</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="提取newToken" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">newToken</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;token&quot; : &quot;(.*)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">ERROR</stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断是否正确获取到newToken" enabled="true">
+            <stringProp name="BeanShellAssertion.query">String newToken=vars.get(&quot;newToken&quot;);//获取loginToken变量值
+log.info(&quot;--------获取token--------&quot;);
+if(newToken.equals(&quot;ERROR&quot;))
+{
+	Failure = true; 
+	log.info(&quot;~~~~~~~~~~获取newToken失败~~~~~~~~~~~~~~&quot;);
+}
+else
+{
+	Failure = false; 
+	log.info(&quot;~~~~~~~~~~~~获取newToken成功，newToken值为：&quot;+newToken+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+        </hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="User-Agent" elementType="Header">
+              <stringProp name="Header.name">cookie</stringProp>
+              <stringProp name="Header.value">tkey=${newToken}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
         <hashTree/>
         <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
           <stringProp name="WhileController.condition">${__jexl3(&quot;${dtpzfcId}&quot; != &quot;&lt;EOF&gt;&quot;)}</stringProp>
@@ -422,11 +550,127 @@ else
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="User-Agent" elementType="Header">
               <stringProp name="Header.name">cookie</stringProp>
               <stringProp name="Header.value">tkey=${__property(tokenValue)}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="获取测试账号" enabled="true">
+          <stringProp name="BeanShellSampler.query">import com.khy.apitest.*;
+
+//String cur=new GetFilePath().getCurrentPath();
+//String cur=System.getProperty(&quot;user.dir&quot;);
+String filePath1=vars.get(&quot;filePath&quot;);
+String filePath=filePath1+&quot;account.csv&quot;;
+//filePath=filePath.replace(&quot;\\&quot;,&quot;\\\\&quot;);
+//return filePath;
+//String filePath=&quot;.\\resources\\dev_account.csv&quot;;本地运行可以，jenkins上不行
+//获取宁波北仑账号
+String nbbl_username=new GetFileData().readTxtData(filePath,2,4);
+String nbbl_password=new GetFileData().readTxtData(filePath,2,5);
+//获取杭州象山账号
+String hzxs_username=new GetFileData().readTxtData(filePath,3,4);
+String hzxs_password=new GetFileData().readTxtData(filePath,3,5);
+vars.put(&quot;nbbl_username&quot;,nbbl_username);
+vars.put(&quot;nbbl_password&quot;,nbbl_password);
+vars.put(&quot;hzxs_username&quot;,hzxs_username);
+vars.put(&quot;hzxs_password&quot;,hzxs_password);
+</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters"></stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登录-宁波北仑" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">service=employee.loginAuth&amp;params={&quot;terminalType&quot;:1,&quot;username&quot;:&quot;${nbbl_username}&quot;,&quot;password&quot;:&quot;${nbbl_password}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="false">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import com.khy.apitest.*;
+
+String cur=new GetFilePath().getCurrentPath();
+//String s=System.getProperty(&quot;user.dir&quot;);
+String filePath=cur+&quot;\\resources\\dev_account.csv&quot;;
+filePath=filePath.replace(&quot;\\&quot;,&quot;\\\\&quot;);
+//String filePath=&quot;.\\resources\\dev_account.csv&quot;;本地运行可以，jenkins上不行
+//String filePath=&quot;./src/test/jmeter/resources/dev_account.csv&quot;;不行
+//获取宁波北仑账号
+String nbbl_username=new GetFileData().readTxtData(filePath,2,4);
+String nbbl_password=new GetFileData().readTxtData(filePath,2,5);
+return nbbl_password;
+//获取杭州象山账号
+String hzxs_username=new GetFileData().readTxtData(filePath,3,4);
+String hzxs_password=new GetFileData().readTxtData(filePath,3,5);
+
+vars.put(&quot;nbbl_username&quot;,nbbl_username);
+vars.put(&quot;nbbl_password&quot;,nbbl_password);
+vars.put(&quot;hzxs_username&quot;,hzxs_username);
+vars.put(&quot;hzxs_password&quot;,hzxs_password);</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="提取newToken" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">newToken</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;token&quot; : &quot;(.*)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">ERROR</stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断是否正确获取到newToken" enabled="true">
+            <stringProp name="BeanShellAssertion.query">String newToken=vars.get(&quot;newToken&quot;);//获取loginToken变量值
+log.info(&quot;--------获取token--------&quot;);
+if(newToken.equals(&quot;ERROR&quot;))
+{
+	Failure = true; 
+	log.info(&quot;~~~~~~~~~~获取newToken失败~~~~~~~~~~~~~~&quot;);
+}
+else
+{
+	Failure = false; 
+	log.info(&quot;~~~~~~~~~~~~获取newToken成功，newToken值为：&quot;+newToken+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+        </hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="User-Agent" elementType="Header">
+              <stringProp name="Header.name">cookie</stringProp>
+              <stringProp name="Header.value">tkey=${newToken}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
