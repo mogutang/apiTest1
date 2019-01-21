@@ -1,0 +1,4 @@
+testcase,result,expected_message,,status,processMoney,claimNote
+理赔审核-实际理赔金额大于申请理赔金额,,,,6,100,理赔审核通过
+实际理赔金额小于申请理赔金额,,,,6,6,理赔审核通过
+理赔审核拒绝-实际理赔金额不变,,,claimNote,5,10,理赔审核拒绝

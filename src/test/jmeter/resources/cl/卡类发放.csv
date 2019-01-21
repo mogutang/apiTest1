@@ -1,0 +1,3 @@
+testcase,result,expected_message,fundType,feeType,accountNumber,receiptNumber,payee,remark,cashflowType,smsNotify,firstDict,secondDict,threeDict,bearOrg
+卡类发放成功,,,1,4,,,,,2,0,0,0,,
+卡类发放失败（挂失）,,,,,,,,,,,,,,

@@ -1,0 +1,2 @@
+testcase,result,expected_message,fundType,feeType,accountNumber,receiptNumber,payee,remark,cashflowType,smsNotify,firstDict,secondDict,threeDict,bearOrg
+现金发放成功,,,1,4,,,,,1,0,0,0,,

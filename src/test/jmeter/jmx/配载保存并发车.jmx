@@ -15,7 +15,7 @@
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
           <collectionProp name="Arguments.arguments"/>
         </elementProp>
-        <stringProp name="HTTPSampler.domain">ktms-dev.kuaihuoyun.com</stringProp>
+        <stringProp name="HTTPSampler.domain">${serviceUrl}</stringProp>
         <stringProp name="HTTPSampler.port"></stringProp>
         <stringProp name="HTTPSampler.protocol">http</stringProp>
         <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -396,6 +396,10 @@ else
             </BeanShellAssertion>
             <hashTree/>
           </hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="如果开单成功，则执行配载" enabled="true">
             <stringProp name="IfController.condition">${orderNum}!=&quot;ERROR&quot;</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
@@ -413,81 +417,86 @@ else
               <stringProp name="variableNames"></stringProp>
             </CSVDataSet>
             <hashTree/>
-            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询运单id" enabled="true">
-              <stringProp name="dataSource">mysql</stringProp>
-              <stringProp name="queryType">Select Statement</stringProp>
-              <stringProp name="query">select id from t_order WHERE number=&apos;${orderNum}&apos;</stringProp>
-              <stringProp name="queryArguments"></stringProp>
-              <stringProp name="queryArgumentsTypes"></stringProp>
-              <stringProp name="variableNames"></stringProp>
-              <stringProp name="resultVariable">orderInfo</stringProp>
-              <stringProp name="queryTimeout">60</stringProp>
-              <stringProp name="resultSetHandler">Store as String</stringProp>
-            </JDBCSampler>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走数据库" enabled="true">
+              <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;true&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
             <hashTree>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取运单id" enabled="true">
-                <boolProp name="resetInterpreter">false</boolProp>
-                <stringProp name="parameters"></stringProp>
-                <stringProp name="filename"></stringProp>
-                <stringProp name="script">//获取状态保存
+              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询运单id" enabled="true">
+                <stringProp name="dataSource">mysql</stringProp>
+                <stringProp name="queryType">Select Statement</stringProp>
+                <stringProp name="query">select id from t_order WHERE number=&apos;${orderNum}&apos;</stringProp>
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="variableNames"></stringProp>
+                <stringProp name="resultVariable">orderInfo</stringProp>
+                <stringProp name="queryTimeout">60</stringProp>
+                <stringProp name="resultSetHandler">Store as String</stringProp>
+              </JDBCSampler>
+              <hashTree>
+                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取运单id" enabled="true">
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="script">//获取状态保存
 Object id1=vars.getObject(&quot;orderInfo&quot;).get(0).get(&quot;id&quot;);
 //保存给id1字段，注：var只支持string，需要转换一下
 vars.put(&quot;id1&quot;,id1.toString());</stringProp>
-              </BeanShellPostProcessor>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="配载-${testcase}" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">service=allot.create_depart&amp;params={&quot;orderIds&quot;:[${id1}],&quot;allotInfo&quot;:{&quot;arriveStation&quot;:&quot;${arriveStation}&quot;,&quot;allotNum&quot;:&quot;${allotNum}&quot;,&quot;note&quot;:&quot;${note}&quot;,&quot;paidFee&quot;:&quot;${paidFee}&quot;,&quot;collectFee&quot;:&quot;${collectFee}&quot;,&quot;returnFreight&quot;:&quot;${returnFreight}&quot;,&quot;truckId&quot;:&quot;${truckId}&quot;,&quot;plateNum&quot;:&quot;${plateNum}&quot;,&quot;driver1Id&quot;:&quot;${driver1Id}&quot;,&quot;driver1Name&quot;:&quot;${driver1Name}&quot;,&quot;driver1Tel&quot;:&quot;${driver1Tel}&quot;,&quot;driver2Id&quot;:&quot;${driver2Id}&quot;,&quot;driver2Name&quot;:&quot;${driver2Name}&quot;,&quot;driver2Tel&quot;:&quot;${driver2Tel}&quot;}}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取返回status" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">status;message</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.status;$.message;</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
-                <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-            </hashTree>
-            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum， 判断返回是否正确" enabled="true">
-              <stringProp name="dataSource">mysql</stringProp>
-              <stringProp name="queryType">Select Statement</stringProp>
-              <stringProp name="query">Select allot_num from t_allot_alloc where id=
+                </BeanShellPostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="配载保存并发车-${testcase}" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">service=allot.create_depart&amp;params={&quot;orderIds&quot;:[${id1}],&quot;allotInfo&quot;:{&quot;arriveStation&quot;:&quot;${arriveStation}&quot;,&quot;allotNum&quot;:&quot;${allotNum}&quot;,&quot;note&quot;:&quot;${note}&quot;,&quot;paidFee&quot;:&quot;${paidFee}&quot;,&quot;collectFee&quot;:&quot;${collectFee}&quot;,&quot;returnFreight&quot;:&quot;${returnFreight}&quot;,&quot;truckId&quot;:&quot;${truckId}&quot;,&quot;plateNum&quot;:&quot;${plateNum}&quot;,&quot;driver1Id&quot;:&quot;${driver1Id}&quot;,&quot;driver1Name&quot;:&quot;${driver1Name}&quot;,&quot;driver1Tel&quot;:&quot;${driver1Tel}&quot;,&quot;driver2Id&quot;:&quot;${driver2Id}&quot;,&quot;driver2Name&quot;:&quot;${driver2Name}&quot;,&quot;driver2Tel&quot;:&quot;${driver2Tel}&quot;}}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取返回status" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">status;message</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.status;$.message;</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum， 判断返回是否正确" enabled="true">
+                <stringProp name="dataSource">mysql</stringProp>
+                <stringProp name="queryType">Select Statement</stringProp>
+                <stringProp name="query">Select allot_num from t_allot_alloc where id=
 (Select allot_id from t_allot_order_mapping where order_id=&quot;${id1}&quot;);</stringProp>
-              <stringProp name="queryArguments"></stringProp>
-              <stringProp name="queryArgumentsTypes"></stringProp>
-              <stringProp name="variableNames">col1</stringProp>
-              <stringProp name="resultVariable">pcInfo</stringProp>
-              <stringProp name="queryTimeout"></stringProp>
-              <stringProp name="resultSetHandler">Store as String</stringProp>
-            </JDBCSampler>
-            <hashTree>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
-                <boolProp name="resetInterpreter">false</boolProp>
-                <stringProp name="parameters"></stringProp>
-                <stringProp name="filename"></stringProp>
-                <stringProp name="script">//如果返回的行数&gt;0,则获取pcNum
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="variableNames">col1</stringProp>
+                <stringProp name="resultVariable">pcInfo</stringProp>
+                <stringProp name="queryTimeout"></stringProp>
+                <stringProp name="resultSetHandler">Store as String</stringProp>
+              </JDBCSampler>
+              <hashTree>
+                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="script">//如果返回的行数&gt;0,则获取pcNum
 if(${col1_#}&gt;0)
 {
 	pcNum=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;allot_num&quot;);
@@ -496,10 +505,10 @@ if(${col1_#}&gt;0)
 
 //Object pcId=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;id&quot;);
 //vars.put(&quot;pcId&quot;,pcId.toString());</stringProp>
-              </BeanShellPostProcessor>
-              <hashTree/>
-              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
-                <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
+                </BeanShellPostProcessor>
+                <hashTree/>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
 String pcNum=vars.get(&quot;pcNum&quot;);
 String message=vars.get(&quot;message&quot;);
 //String pzResult = &quot;0&quot;;
@@ -526,11 +535,261 @@ else
 }
 
 </stringProp>
-                <stringProp name="BeanShellAssertion.filename"></stringProp>
-                <stringProp name="BeanShellAssertion.parameters"></stringProp>
-                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-              </BeanShellAssertion>
-              <hashTree/>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走接口" enabled="true">
+              <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;false&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询运单接口" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">service=order.query.keyword&amp;params={&quot;keyword&quot;:&quot;${orderNum}&quot;,&quot;type&quot;:&quot;0&quot;,&quot;page&quot;:1,&quot;size&quot;:500}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="TestPlan.comments">查询运单id,transitStatus</stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取id,transitStatus" enabled="true">
+                  <stringProp name="TestPlan.comments">获取运单id，配载状态10(未配载)、20（已配载）、30（在途中）</stringProp>
+                  <stringProp name="JSONPostProcessor.referenceNames">orderId;transitStatus;status;total;</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.items[0].id;$.data.items[0].transitStatus;$.status;$.data.total;</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;ERROR;ERROR;</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断运单运输状态" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">log.info(&quot;-------------配载前，检查运单运输状态是否正确-------------------&quot;);
+//获取运单运输状态
+String transitStatus=vars.get(&quot;transitStatus&quot;);
+String status=vars.get(&quot;status&quot;);
+String total=vars.get(&quot;total&quot;);
+
+//判断接口返回status是否正确
+if(status.equals(&quot;200&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~接口返回status正确~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage=&quot;接口返回status错误&quot;;
+	log.info(&quot;~~~~~~~~~~~~~~~~&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~&quot;);
+}
+
+//判断运单数量返回是否正确：10(未配载)、20（已配载）、30（在途中）、40（已到站）
+if(!total.equals(&quot;0&quot;) || !total.equals(&quot;ERROR&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~接口返回total正确~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage=&quot;接口返回total为0或错误&quot;;
+	log.info(&quot;~~~~~~~~~~~~~~~~~&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+
+//判断运输状态是否正确
+if(transitStatus.equals(&quot;10&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~运单运输状态正确~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage=&quot;运单运输状态错误&quot;;
+	log.info(&quot;~~~~~~~~~~~~~~&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~&quot;);
+
+}</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+              </hashTree>
+              <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="配载" enabled="true"/>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="配载保存并发车-${testcase}" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">service=allot.create_depart&amp;params={&quot;orderIds&quot;:[${orderId}],&quot;allotInfo&quot;:{&quot;arriveStation&quot;:&quot;${arriveStation}&quot;,&quot;allotNum&quot;:&quot;${allotNum}&quot;,&quot;note&quot;:&quot;${note}&quot;,&quot;paidFee&quot;:&quot;${paidFee}&quot;,&quot;collectFee&quot;:&quot;${collectFee}&quot;,&quot;returnFreight&quot;:&quot;${returnFreight}&quot;,&quot;truckId&quot;:&quot;${truckId}&quot;,&quot;plateNum&quot;:&quot;${plateNum}&quot;,&quot;driver1Id&quot;:&quot;${driver1Id}&quot;,&quot;driver1Name&quot;:&quot;${driver1Name}&quot;,&quot;driver1Tel&quot;:&quot;${driver1Tel}&quot;,&quot;driver2Id&quot;:&quot;${driver2Id}&quot;,&quot;driver2Name&quot;:&quot;${driver2Name}&quot;,&quot;driver2Tel&quot;:&quot;${driver2Tel}&quot;}}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取返回pzStatus" enabled="true">
+                    <stringProp name="JSONPostProcessor.referenceNames">pzStatus;message</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.status;$.message;</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载返回值是否正确" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">log.info(&quot;-------------配载后，判断返回是否正确--------------&quot;);
+String pzStatus=vars.get(&quot;pzStatus&quot;);
+String message=vars.get(&quot;message&quot;);
+if(pzStatus.equals(&quot;200&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~成功配载，且返回状态正确~~&quot;);
+}
+else if(pzStatus.equals(&quot;500&quot;) &amp;&amp; message.equals(&quot;${expected_message}&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~配载失败，失败原因：&quot;+&quot;${expected_message}&quot;+&quot;~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage = &quot;配载失败或者返回状态错误&quot;;
+	log.info(&quot;~~~~~~~~~~错误原因：&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;);
+}</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                </hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="配载成功校验运输状态" enabled="true">
+                  <stringProp name="IfController.condition">${pzStatus}==&quot;200&quot;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询运单接口-判断运单运输状态" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                      <collectionProp name="Arguments.arguments">
+                        <elementProp name="" elementType="HTTPArgument">
+                          <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                          <stringProp name="Argument.value">service=order.query.keyword&amp;params={&quot;keyword&quot;:&quot;${orderNum}&quot;,&quot;type&quot;:&quot;0&quot;,&quot;page&quot;:1,&quot;size&quot;:500}</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                      </collectionProp>
+                    </elementProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
+                    <stringProp name="HTTPSampler.protocol"></stringProp>
+                    <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                    <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                    <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                    <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                    <stringProp name="TestPlan.comments">查询运单id,transitStatus</stringProp>
+                  </HTTPSamplerProxy>
+                  <hashTree>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取id,transitStatus" enabled="true">
+                      <stringProp name="TestPlan.comments">获取运单id，配载状态10(未配载)、20（已配载）、30（在途中）</stringProp>
+                      <stringProp name="JSONPostProcessor.referenceNames">orderId;transitStatus;status;total;</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.items[0].id;$.data.items[0].transitStatus;$.status;$.data.total;</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                      <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;ERROR;ERROR;</stringProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断运单运输状态" enabled="true">
+                      <stringProp name="BeanShellAssertion.query">log.info(&quot;-------------配载后，检查运单运输状态是否正确-------------------&quot;);
+//获取运单运输状态
+String transitStatus=vars.get(&quot;transitStatus&quot;);
+String pzStatus=vars.get(&quot;pzStatus&quot;);
+String message=vars.get(&quot;message&quot;);
+String status=vars.get(&quot;status&quot;);
+String total=vars.get(&quot;total&quot;);
+
+//判断接口返回status是否正确
+if(status.equals(&quot;200&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~接口返回status正确~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage=&quot;接口返回status错误&quot;;
+	log.info(&quot;~~~~~~~~~~~~~~~&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+
+//判断运单数量返回是否正确：10(未配载)、20（已配载）、30（在途中）、40（已到站）
+if(!total.equals(&quot;0&quot;) || !total.equals(&quot;ERROR&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~接口返回total正确~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage=&quot;接口返回total为0或错误&quot;;
+	log.info(&quot;~~~~~~~~~~~~~~~~&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~&quot;);
+}
+
+//判断配载保存接口返回status和message是否正确;判断运单运输状态是否正确
+if(transitStatus.equals(&quot;30&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~运单运输状态正确~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage = &quot;运单运输状态错误&quot;;
+	log.info(&quot;~~~~~~~~~~错误原因：&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;);
+}</stringProp>
+                      <stringProp name="BeanShellAssertion.filename"></stringProp>
+                      <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                      <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                    </BeanShellAssertion>
+                    <hashTree/>
+                  </hashTree>
+                </hashTree>
+              </hashTree>
             </hashTree>
           </hashTree>
         </hashTree>
@@ -870,24 +1129,29 @@ ${total}&gt;=&quot;5&quot;</stringProp>
               </JSONPostProcessor>
               <hashTree/>
             </hashTree>
-            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum，判断批量配载保存并发车是否成功" enabled="true">
-              <stringProp name="dataSource">mysql</stringProp>
-              <stringProp name="queryType">Select Statement</stringProp>
-              <stringProp name="query">Select allot_num,id from t_allot_alloc where id in
-(Select allot_id from t_allot_order_mapping where order_id in (&quot;${id1}&quot;,&quot;${id2}&quot;,&quot;${id3}&quot;,&quot;${id4}&quot;,&quot;${id5}&quot;));</stringProp>
-              <stringProp name="queryArguments"></stringProp>
-              <stringProp name="queryArgumentsTypes"></stringProp>
-              <stringProp name="variableNames">col2</stringProp>
-              <stringProp name="resultVariable">pcInfo</stringProp>
-              <stringProp name="queryTimeout"></stringProp>
-              <stringProp name="resultSetHandler">Store as String</stringProp>
-            </JDBCSampler>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走数据库" enabled="true">
+              <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;true&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
             <hashTree>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
-                <boolProp name="resetInterpreter">false</boolProp>
-                <stringProp name="parameters"></stringProp>
-                <stringProp name="filename"></stringProp>
-                <stringProp name="script">//如果返回的行数&gt;0,则获取pcNum
+              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum，判断批量配载保存并发车是否成功" enabled="true">
+                <stringProp name="dataSource">mysql</stringProp>
+                <stringProp name="queryType">Select Statement</stringProp>
+                <stringProp name="query">Select allot_num,id from t_allot_alloc where id in
+(Select allot_id from t_allot_order_mapping where order_id in (&quot;${id1}&quot;,&quot;${id2}&quot;,&quot;${id3}&quot;,&quot;${id4}&quot;,&quot;${id5}&quot;));</stringProp>
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="variableNames">col2</stringProp>
+                <stringProp name="resultVariable">pcInfo</stringProp>
+                <stringProp name="queryTimeout"></stringProp>
+                <stringProp name="resultSetHandler">Store as String</stringProp>
+              </JDBCSampler>
+              <hashTree>
+                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="script">//如果返回的行数&gt;0,则获取pcNum
 if(${col2_#}&gt;0)
 {
 	Object pcNum=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;allot_num&quot;);
@@ -896,10 +1160,10 @@ if(${col2_#}&gt;0)
 
 //Object pcId=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;id&quot;);
 //vars.put(&quot;pcId&quot;,pcId.toString());</stringProp>
-              </BeanShellPostProcessor>
-              <hashTree/>
-              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
-                <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
+                </BeanShellPostProcessor>
+                <hashTree/>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
 String pcNum=vars.get(&quot;pcNum&quot;);
 String message=vars.get(&quot;message&quot;);
 //String expected_message=vars.get(&quot;expected_message&quot;);
@@ -927,15 +1191,79 @@ else
 }
 
 </stringProp>
-                <stringProp name="BeanShellAssertion.filename"></stringProp>
-                <stringProp name="BeanShellAssertion.parameters"></stringProp>
-                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-              </BeanShellAssertion>
-              <hashTree/>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走接口" enabled="true">
+              <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;false&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取批次号" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">service=allot.query_order_allots&amp;params={&quot;orderId&quot;:&quot;${id1}&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取返回status,allotNum" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">status1;pcNum</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.status;$.data[0].allotNum;</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断批量配载保存并发车是否成功" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
+String pcNum=vars.get(&quot;pcNum&quot;);
+String message=vars.get(&quot;message&quot;);
+log.info(&quot;--------批量配载后校验返回status是否正确--------&quot;);
+if(status.equals(&quot;200&quot;) &amp;&amp; !pcNum.equals(&quot;ERROR&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~~~~~~~~~~~配载成功，批次号=&quot;+pcNum+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage = &quot;批次号为空或返回状态不正确&quot;;
+	log.info(&quot;~~~~~~~~~~错误原因：&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;);
+}
+
+</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+              </hashTree>
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="合并配载" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="合并配载-保存并发车" enabled="true"/>
         <hashTree>
           <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="开单-2个" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
@@ -1129,29 +1457,34 @@ else
                 </JSONPostProcessor>
                 <hashTree/>
               </hashTree>
-              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum，判断第一次配载是否成功" enabled="true">
-                <stringProp name="dataSource">mysql</stringProp>
-                <stringProp name="queryType">Select Statement</stringProp>
-                <stringProp name="query">Select allot_num,id from t_allot_alloc where id=
-(Select allot_id from t_allot_order_mapping where order_id=&quot;${id1}&quot;)</stringProp>
-                <stringProp name="queryArguments"></stringProp>
-                <stringProp name="queryArgumentsTypes"></stringProp>
-                <stringProp name="variableNames"></stringProp>
-                <stringProp name="resultVariable">pcInfo</stringProp>
-                <stringProp name="queryTimeout"></stringProp>
-                <stringProp name="resultSetHandler">Store as String</stringProp>
-              </JDBCSampler>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走数据库" enabled="true">
+                <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;true&quot;)}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
               <hashTree>
-                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
-                  <boolProp name="resetInterpreter">false</boolProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="script">Object pcNum=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;allot_num&quot;);
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum，判断第一次配载是否成功" enabled="true">
+                  <stringProp name="dataSource">mysql</stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="query">Select allot_num,id from t_allot_alloc where id=
+(Select allot_id from t_allot_order_mapping where order_id=&quot;${id1}&quot;)</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="variableNames"></stringProp>
+                  <stringProp name="resultVariable">pcInfo</stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                </JDBCSampler>
+                <hashTree>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="script">Object pcNum=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;allot_num&quot;);
 vars.put(&quot;pcNum&quot;,pcNum.toString());</stringProp>
-                </BeanShellPostProcessor>
-                <hashTree/>
-                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
-                  <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
 String pcNum=vars.get(&quot;pcNum&quot;);
 String message=vars.get(&quot;message&quot;);
 //String expected_message=vars.get(&quot;expected_message&quot;);
@@ -1179,11 +1512,75 @@ else
 }
 
 </stringProp>
-                  <stringProp name="BeanShellAssertion.filename"></stringProp>
-                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
-                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-                </BeanShellAssertion>
-                <hashTree/>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走接口" enabled="true">
+                <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;false&quot;)}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取批次号，判断第一次配载是否成功" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">service=allot.query_order_allots&amp;params={&quot;orderId&quot;:&quot;${id1}&quot;}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取返回status,allotNum" enabled="true">
+                    <stringProp name="JSONPostProcessor.referenceNames">status1;pcNum</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.status;$.data[0].allotNum;</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断第一次配载是否成功" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
+String pcNum=vars.get(&quot;pcNum&quot;);
+String message=vars.get(&quot;message&quot;);
+log.info(&quot;--------批量配载后校验返回status是否正确--------&quot;);
+if(status.equals(&quot;200&quot;) &amp;&amp; !pcNum.equals(&quot;ERROR&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~~~~~~~~~~~配载成功，批次号=&quot;+pcNum+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage = &quot;批次号为空或返回状态不正确&quot;;
+	log.info(&quot;~~~~~~~~~~错误原因：&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;);
+}
+
+</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                </hashTree>
               </hashTree>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="合并配载" enabled="true"/>
@@ -1265,31 +1662,36 @@ else
                 </JSONPostProcessor>
                 <hashTree/>
               </hashTree>
-              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum，判断合并配载保存并发车是否成功" enabled="true">
-                <stringProp name="dataSource">mysql</stringProp>
-                <stringProp name="queryType">Select Statement</stringProp>
-                <stringProp name="query">Select allot_num,id from t_allot_alloc where id=
-(Select allot_id from t_allot_order_mapping where order_id=&quot;${id2}&quot;)</stringProp>
-                <stringProp name="queryArguments"></stringProp>
-                <stringProp name="queryArgumentsTypes"></stringProp>
-                <stringProp name="variableNames"></stringProp>
-                <stringProp name="resultVariable">pcInfo</stringProp>
-                <stringProp name="queryTimeout"></stringProp>
-                <stringProp name="resultSetHandler">Store as String</stringProp>
-              </JDBCSampler>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走数据库" enabled="true">
+                <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;true&quot;)}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
               <hashTree>
-                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
-                  <boolProp name="resetInterpreter">false</boolProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="script">Object pcNum2=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;allot_num&quot;);
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询批次号pcNum，判断合并配载保存并发车是否成功" enabled="true">
+                  <stringProp name="dataSource">mysql</stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="query">Select allot_num,id from t_allot_alloc where id=
+(Select allot_id from t_allot_order_mapping where order_id=&quot;${id2}&quot;)</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="variableNames"></stringProp>
+                  <stringProp name="resultVariable">pcInfo</stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                </JDBCSampler>
+                <hashTree>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="获取批次号" enabled="true">
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="script">Object pcNum2=vars.getObject(&quot;pcInfo&quot;).get(0).get(&quot;allot_num&quot;);
 vars.put(&quot;pcNum2&quot;,pcNum2.toString());
 
 </stringProp>
-                </BeanShellPostProcessor>
-                <hashTree/>
-                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
-                  <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断配载是否成功" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
 String pcNum=vars.get(&quot;pcNum&quot;);
 String pcNum2=vars.get(&quot;pcNum2&quot;);
 String message=vars.get(&quot;message&quot;);
@@ -1318,11 +1720,82 @@ else
 }
 
 </stringProp>
-                  <stringProp name="BeanShellAssertion.filename"></stringProp>
-                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
-                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-                </BeanShellAssertion>
-                <hashTree/>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="判断走接口" enabled="true">
+                <stringProp name="IfController.condition">${__jexl3(&quot;${sqlCheck}&quot;==&quot;false&quot;)}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取批次号，判断合并配载是否成功" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">service=allot.query_order_allots&amp;params={&quot;orderId&quot;:&quot;${id2}&quot;}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/ktms/service/call</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="获取返回status,allotNum" enabled="true">
+                    <stringProp name="JSONPostProcessor.referenceNames">status1;pcNum2</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.status;$.data[0].allotNum;</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">ERROR;ERROR;</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="判断合并配载是否成功" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">String status=vars.get(&quot;status&quot;);
+String pcNum=vars.get(&quot;pcNum&quot;);
+String pcNum2=vars.get(&quot;pcNum2&quot;);
+String message=vars.get(&quot;message&quot;);
+
+log.info(&quot;--------判断合并配载是否成功--------&quot;);
+if(status.equals(&quot;200&quot;) &amp;&amp; pcNum2.length()!=0 &amp;&amp; pcNum.equals(pcNum2))
+{
+	Failure = false; 
+	log.info(&quot;~~~~~~~~~~~~合并配载成功，批次号=&quot;+pcNum+&quot;~~对应运单id：&quot;+&quot;${id1}&quot;+&quot;、&quot;+&quot;${id2}&quot;+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+else if(status.equals(&quot;500&quot;) &amp;&amp; message.equals(&quot;${expected_message}&quot;))
+{
+	Failure = false; 
+	log.info(&quot;~~~~~~~~~~~~配载失败，失败原因：&quot;+&quot;${expected_message}&quot;+&quot;~~~~~~~~~~~~~~~~~&quot;);
+}
+else
+{
+	Failure = true; 
+	FailureMessage = &quot;合并配载失败&quot;;
+	log.info(&quot;~~~~~~~~~~合并配载失败，错误原因：&quot;+FailureMessage+&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;);
+}
+
+</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                </hashTree>
               </hashTree>
             </hashTree>
           </hashTree>

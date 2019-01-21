@@ -1,4 +1,4 @@
-dtshpzId,testcase,result,expected_message,plateNum,truckId,driver1Id,driver1Tel,driverName,orderId,actualDeliveryFee
-DTSHPZ01,配载信息完整,,送货配载成功,浙BA0001,10452,10275,17300000001,司机一号,,30
-DTSHPZ02,自提运单,,不在送货库存,浙BA0001,10452,10275,17300000001,司机一号,,30
-DTSHPZ03,实际送货费<0,,关联服务调用出错，请稍后重试!,浙BA0001,10452,10275,17300000001,司机一号,,-9
+dtshpzId,testcase,result,expected_message,is_delivered,plateNum,truckId,driver1Id,driver1Tel,driverName,orderId,actualDeliveryFee
+DTSHPZ01,配载信息完整,,送货配载成功,1,浙BA0001,10452,10275,17300000001,司机一号,,30
+DTSHPZ02,自提运单,,不在送货库存,0,浙BA0001,10452,10275,17300000001,司机一号,,30
+DTSHPZ03,实际送货费<0,,关联服务调用出错，请稍后重试!,0,浙BA0001,10452,10275,17300000001,司机一号,,-9

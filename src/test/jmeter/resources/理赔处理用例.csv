@@ -1,0 +1,4 @@
+testcase,result,expected_message,,status,processMoney,processNote
+理赔受理-实际理赔金额大于申请理赔金额,,,,4,100,理赔受理成功
+实际理赔金额小于申请理赔金额,,,,4,12,理赔受理成功
+理赔拒绝-实际理赔金额不变,,,,3,10,理赔受理拒绝

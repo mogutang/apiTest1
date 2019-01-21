@@ -1,0 +1,11 @@
+testcase,result,expected_message,sourceStationId,sourceStation,targetStationId,targetStation,routeStationId,routeStation,consignerId,consigneeId,consignerName,consigneeName,consignerPhone,consigneePhone,consigneeAddress,consignerType,consigneeType,waitDelivery,ename,name,quantity,weight,volume,overpack,unitValue,deliveryType,paymentType,collectFee,freight,insurePrice,insureFee,recordFee,receiptFee
+正常单自提,签收成功,,10591,杭州,10593,余杭,,,12788,12789,张三普通,李四普通,15825529713,15825529711,,,,,,自提,2,1,1,木架,1,1,,,,,,,
+等通知放货自提,签收成功,,10591,杭州,10593,余杭,,,12788,12789,张三普通,李四普通,15825529713,15825529711,,,,,,自提,2,1,1,木架,1,1,,,,,,,
+返单自提,签收成功,,10591,杭州,10593,余杭,,,12788,12789,张三普通,李四普通,15825529713,15825529711,送货地址,,,,,送货,2,1,1,木架,1,2,,,,,,,
+收款方式：现金,成功,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+收款方式：转账,成功,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+收款方式：刷卡,成功,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+收款方式：其他,成功,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+收款方式：支付宝,成功,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+签收人为空,失败,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+设置身份证必填,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

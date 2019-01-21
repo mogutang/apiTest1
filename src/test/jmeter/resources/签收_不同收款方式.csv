@@ -1,0 +1,6 @@
+testcase,result,expected_message,orderIds,gatherType,signerName,sendMessage
+收款方式为现金,成功,,,1,cxl接口测试,
+收款方式为刷卡,成功,,,2,cxl接口测试,
+收款方式为转账,成功,,,3,cxl接口测试,
+收款方式为其他,成功,,,4,cxl接口测试,
+收款方式为支付宝,未实现,,,5,cxl接口测试,

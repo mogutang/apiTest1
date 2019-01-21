@@ -1,0 +1,2 @@
+testcase,result,expected_message,sourceStationId,sourceStation,targetStationId,targetStation,routeStationId,routeStation,consignerId,consigneeId,consignerName,consigneeName,consignerPhone,consigneePhone,consignerAddress,consigneeAddress,consignerType,consigneeType,receiptNumber,waitDelivery,ename,name,quantity,weight,volume,overpack,unitValue,deliveryType,paymentType,paymentCollect,collectFee,freight,insurePrice,insureFee,recordFee,receiptFee,deliveryFee
+发货人为卡类,开单成功,,10587,东方,10588,仁英,,,,,cl卡类,测试1,13922001111,18212001111,,,0,0,,,,哈哈,2,1,1,木架,1,1,2,500,,66,,,,,

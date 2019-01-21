@@ -1,0 +1,5 @@
+testcase,result,expected_message,sourceStationId,sourceStation,targetStationId,targetStation,routeStationId,routeStation,consignerId,consigneeId,consignerName,consigneeName,consignerPhone,consigneePhone,consigneeAddress,consignerType,consigneeType,waitDelivery,ename,name,quantity,weight,volume,overpack,unitValue,deliveryType,paymentType,collectFee,freight,insurePrice,insureFee,recordFee,receiptFee
+送货运单未送货签收,签收失败,,10591,杭州,10593,余杭,,,12788,12789,张三普通,李四普通,15825529713,15825529711,送货地址,,,,,送货,2,1,1,木架,1,2,,,,,,,
+外转运单未外转,签收失败,,10591,杭州,3238,建德市,10593,余杭,12788,12789,张三普通,李四普通,15825529713,15825529711,,,,,,外转,2,1,1,木架,1,1,,,,,,,
+等通知放货未放货签收,签收失败,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+正在支付总运单签收,签收失败,"运单号：0018022600022正在支付, 无法签收!",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

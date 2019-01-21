@@ -1,0 +1,3 @@
+testcase,result,expected_message,sourceStationId,sourceStation,targetStationId,targetStation,routeStationId,routeStation,consignerId,consigneeId,consignerName,consigneeName,consignerPhone,consigneePhone,consignerAddress,consigneeAddress,consignerType,consigneeType,receiptNumber,waitDelivery,ename,name,quantity,weight,volume,overpack,unitValue,deliveryType,paymentType,paymentCollect,collectFee,freight,insurePrice,insureFee,recordFee,receiptFee,pickupFee,deliveryFee,storageFee
+有运输关系,开单成功,,10591,杭州,10593,余杭,,,12788,12789,张三普通,李四普通,15825529713,15825529711,,,0,0,,,,哈哈,2,1,1,木架,1,1,2,,,66,,1.2,1,0,1,0,0.5
+自提运单,开单成功,,10591,杭州,10593,余杭,,,12788,12789,张三普通,李四普通,15825529713,15825529711,,,0,0,,,,哈哈,2,1,1,木架,1,1,2,,,66,,1.2,1,0,1,0,0.5

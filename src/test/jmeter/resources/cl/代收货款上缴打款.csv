@@ -1,0 +1,4 @@
+testcase,result,expected_message,feeType,applyRemark
+普通账户余额不足代收货款上缴打款失败,,,3,
+普通账户代收货款上缴打款成功,,,3,
+无账户代收货款上缴打款成功,,,3,
